@@ -1,14 +1,12 @@
-import requests
+from connections.apiCoins import api_coins
 
 def get_euro():
 
     print("Pegando valor do euro")
 
     try:
-
-        url = "https://economia.awesomeapi.com.br/json/last/EUR-BRL"
-        resposta = requests.get(url)
-        dados = resposta.json()
+        coin = "EUR-BRL"
+        dados = api_coins(coin)
         euro_brl = float(dados["EURBRL"]["bid"])
 
         print(f"1 Euro (EUR) em Reais (BRL): R$ {euro_brl:.2f}")
